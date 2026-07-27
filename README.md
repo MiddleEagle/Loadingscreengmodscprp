@@ -26,7 +26,7 @@ Les photos de profil sont récupérées directement depuis les SteamID64, sans a
 - **Membres du staff** : renseignez le champ `steamId` de chaque membre dans `js/config.js`.
 
 ```js
-{ name: "Dr. Shaw", grade: "Administrateur", activity: "En service", online: true, steamId: "7656119XXXXXXXXXX", image: "" }
+{ name: "Dr. Shaw", grade: "Administrateur", steamId: "7656119XXXXXXXXXX", image: "" }
 ```
 
 Le dossier `worker/` contient une solution recommandée qui demande l'avatar à l'API officielle Steam sans exposer votre clé. Suivez son guide, puis renseignez son adresse dans `steam.avatarProxyUrl`. Le projet conserve un service public de secours tant que le Worker n'est pas configuré. Une image renseignée dans `image` est toujours prioritaire sur Steam.

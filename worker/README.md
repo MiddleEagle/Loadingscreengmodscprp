@@ -14,4 +14,4 @@ GitHub Pages est un hébergement statique : il ne peut pas garder une clé Steam
 avatarProxyUrl: "https://scp-steam-avatar.votre-compte.workers.dev/avatar?steamid=",
 ```
 
-Le loading screen acceptera un SteamID64 (`765…`), l'ancien format (`STEAM_0:1:...`) et Steam3 (`[U:1:...]`) pour le staff. Pour le joueur qui se connecte, utilisez bien `?steamid=%s` dans `sv_loadingurl` : GMod transmet un SteamID64.
+Le loading screen acceptera un SteamID64 (`765…`), l'ancien format (`STEAM_0:1:...`) et Steam3 (`[U:1:...]`) pour le staff. Pour le joueur qui se connecte, utilisez bien `?steamid=%s` dans `sv_loadingurl` : GMod transmet un SteamID64. Le Worker fournit aussi le pseudo Steam du joueur : l'écran affiche alors « Personnel autorisé » avec son pseudo réel.

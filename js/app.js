@@ -26,6 +26,12 @@
     const service = config.steam.avatarProxyUrl || config.steam.fallbackAvatarService;
     return service ? `${service}${encodeURIComponent(steamId64)}` : "";
   };
+  const steamProfileUrl = (steamId) => {
+    const steamId64 = normalizeSteamId(steamId);
+    if (!config.steam?.enabled || !steamId64) return "";
+    const service = config.steam.profileProxyUrl || config.steam.avatarProxyUrl.replace("/avatar?", "/profile?");
+    return service ? `${service}${encodeURIComponent(steamId64)}` : "";
+  };
   const setAvatar = (node, name, image) => {
     node.textContent = initials(name);
     node.classList.remove("has-image");
@@ -43,11 +49,23 @@
   setText("#server-tagline", config.serverTagline);
   setText("#welcome-text", config.welcomeText);
   setText("#player-name", config.playerName);
+  setText("#player-role", config.playerRole);
   setText("#footer-text", config.footerText);
   $("#discord-link").href = config.discordUrl;
   const parameters = new URLSearchParams(window.location.search);
   const playerSteamId = config.playerSteamId || parameters.get(config.steam?.queryParameter || "steamid");
   setAvatar($("#player-avatar"), config.playerName, config.playerAvatar || steamAvatarUrl(playerSteamId));
+  const profileUrl = steamProfileUrl(playerSteamId);
+  if (profileUrl) {
+    fetch(profileUrl)
+      .then((response) => response.ok ? response.json() : Promise.reject())
+      .then((profile) => {
+        if (!profile?.name) return;
+        setText("#player-name", profile.name);
+        setAvatar($("#player-avatar"), profile.name, config.playerAvatar || profile.avatar || steamAvatarUrl(playerSteamId));
+      })
+      .catch(() => { /* Le nom de secours reste affiché si Steam est indisponible. */ });
+  }
 
   const rules = $("#rules-list");
   config.rules.forEach((rule) => { const item = document.createElement("li"); item.textContent = rule; rules.append(item); });

@@ -8,7 +8,7 @@ const STEAM_API = "https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2
 export default {
   async fetch(request, env, context) {
     const url = new URL(request.url);
-    if (url.pathname !== "/avatar") return new Response("Not found", { status: 404 });
+    if (url.pathname !== "/avatar" && url.pathname !== "/profile") return new Response("Not found", { status: 404 });
     const steamId = url.searchParams.get("steamid") || "";
     if (!/^7656119\d{10}$/.test(steamId)) return new Response("SteamID64 invalide", { status: 400 });
     if (!env.STEAM_WEB_API_KEY) return new Response("Secret STEAM_WEB_API_KEY manquant", { status: 500 });
@@ -24,8 +24,18 @@ export default {
     const steamResponse = await fetch(steamUrl);
     if (!steamResponse.ok) return new Response("Steam indisponible", { status: 502 });
     const data = await steamResponse.json();
-    const avatarUrl = data?.response?.players?.[0]?.avatarfull;
+    const player = data?.response?.players?.[0];
+    const avatarUrl = player?.avatarfull;
     if (!avatarUrl) return new Response("Avatar introuvable", { status: 404 });
+
+    if (url.pathname === "/profile") {
+      const response = new Response(JSON.stringify({ name: player.personaname || "Joueur", avatar: avatarUrl }), {
+        status: 200,
+        headers: { "Content-Type": "application/json; charset=UTF-8", "Cache-Control": "public, max-age=3600, s-maxage=3600", "Access-Control-Allow-Origin": "*" }
+      });
+      context.waitUntil(cache.put(cacheKey, response.clone()));
+      return response;
+    }
 
     const imageResponse = await fetch(avatarUrl);
     if (!imageResponse.ok) return new Response("Image Steam indisponible", { status: 502 });

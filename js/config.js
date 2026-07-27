@@ -6,7 +6,8 @@ window.LOADING_CONFIG = {
   serverName: "SCP: SITE-19 RP",
   serverTagline: "FONDATION SCP — ACCÈS AU SITE 19",
   welcomeText: "Vos identifiants sont en cours de vérification. Préparez-vous à intégrer le Site-19.",
-  playerName: "Personnel autorisé",
+  playerRole: "Personnel autorisé",
+  playerName: "Joueur", // Nom de secours si l'API Steam n'est pas configurée.
   playerAvatar: "", // Exemple : "assets/player.jpg" (facultatif)
   playerSteamId: "", // Laissez vide : GMod le reçoit automatiquement avec ?steamid=%s.
   steam: {
@@ -15,7 +16,9 @@ window.LOADING_CONFIG = {
     // Recommandé : l'adresse de VOTRE Cloudflare Worker inclus dans worker/.
     // Exemple : "https://scp-steam-avatar.votre-compte.workers.dev/avatar?steamid="
     // Sans Worker, le service public de secours sera utilisé.
-    avatarProxyUrl: "https://steamapi.noeouvrard85.workers.dev/avatar?steamid=",
+    avatarProxyUrl: "",
+    // Facultatif : si vide, l'adresse /profile est déduite automatiquement de avatarProxyUrl.
+    profileProxyUrl: "",
     fallbackAvatarService: "https://unavatar.io/steam/profile:"
   },
   accentColor: "#d33131",
