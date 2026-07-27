@@ -14,7 +14,7 @@ body {
   color: var(--text);
   background: #0b1020;
   font-family: "DM Sans", Arial, sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .background, .background-video, .background-overlay { position: fixed; inset: 0; pointer-events: none; }
@@ -79,7 +79,6 @@ h2 { margin: 0; font-size: 14px; letter-spacing: -.01em; }
 
 @keyframes drift { to { transform: scale(1.1) translate3d(-.7%, -.5%, 0); } }
 @media (max-width: 850px) {
-  body { overflow-x: hidden; overflow-y: auto; }
   .loading-screen { grid-template-columns: 1fr; grid-template-rows: auto auto auto auto; gap: 25px; }
   .hero { padding: 45px 0 25px; }
   .staff-panel { grid-column: 1; grid-row: auto; align-self: auto; min-height: 0; }
