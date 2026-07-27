@@ -24,15 +24,7 @@ window.LOADING_CONFIG = {
   accentColor: "#d33131",
   footerText: "Sécuriser · Contenir · Protéger",
   backgroundImage: "assets/background.svg", // Remplacez par "assets/background.jpg" pour votre photo.
-  // Facultatif : ex. "assets/background.mp4". La vidéo est lue en boucle et sans son.
-  backgroundVideo: {
-    "assets/background1.mp4",
-    "assets/background2.mp4",
-    "assets/background3.mp4",
-    "assets/background4.mp4",
-    "assets/background5.mp4",
-
-  },
+  backgroundVideo: "assets/background1.mp4",
   music: {
     enabled: true,
     source: "assets/music.mp3", // Ajoutez votre fichier MP3 à cet emplacement.
