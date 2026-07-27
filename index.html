@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1020" />
+    <title>Chargement...</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="background" aria-hidden="true"></div>
+    <div class="background-overlay" aria-hidden="true"></div>
+
+    <main class="loading-screen">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Accueil">
+          <span class="brand-mark">S</span>
+          <span id="server-name">SCP: SITE-19 RP</span>
+        </a>
+        <div class="player-card">
+          <div class="avatar" id="player-avatar">P</div>
+          <div>
+            <span class="eyebrow">Bienvenue</span>
+            <strong id="player-name">Joueur</strong>
+          </div>
+        </div>
+      </header>
+
+      <section class="hero" aria-labelledby="loading-title">
+        <p class="eyebrow" id="server-tagline">FONDATION SCP — ACCÈS AU SITE 19</p>
+        <h1 id="loading-title">Accès au site<br /><em>en cours.</em></h1>
+        <p class="hero-copy" id="welcome-text">Vos identifiants sont en cours de vérification. Préparez-vous à intégrer le Site-19.</p>
+
+        <div class="progress-area" aria-live="polite">
+          <div class="progress-labels">
+          <span id="loading-status">En attente du statut Garry's Mod…</span>
+            <strong id="loading-percent">0%</strong>
+          </div>
+          <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <p class="loading-detail" id="loading-detail">Le jeu affichera ici son état réel de connexion.</p>
+        </div>
+      </section>
+
+      <aside class="rules-panel panel" aria-labelledby="rules-title">
+        <div class="panel-heading">
+          <span class="panel-number">01</span>
+          <h2 id="rules-title">Les règles essentielles</h2>
+        </div>
+        <ol id="rules-list" class="rules-list"></ol>
+      </aside>
+
+      <aside class="staff-panel panel" aria-labelledby="staff-title">
+        <div class="panel-heading">
+          <span class="panel-number">02</span>
+          <h2 id="staff-title">L'équipe en ville</h2>
+        </div>
+        <div id="staff-list" class="staff-list"></div>
+      </aside>
+
+      <footer class="footer">
+        <a id="discord-link" href="#" target="_blank" rel="noreferrer">Rejoindre le Discord <span>↗</span></a>
+        <button class="sound-control" id="sound-control" type="button" aria-label="Activer la musique">
+          <span class="sound-icon" aria-hidden="true">♫</span>
+          <span id="sound-label">Musique désactivée</span>
+        </button>
+        <span id="footer-text">Sécuriser · Contenir · Protéger</span>
+      </footer>
+    </main>
+
+    <audio id="background-music" loop preload="none"></audio>
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
