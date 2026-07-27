@@ -51,7 +51,6 @@
   setText("#player-name", config.playerName);
   setText("#player-role", config.playerRole);
   setText("#footer-text", config.footerText);
-  $("#discord-link").href = config.discordUrl;
   const parameters = new URLSearchParams(window.location.search);
   const playerSteamId = config.playerSteamId || parameters.get(config.steam?.queryParameter || "steamid");
   setAvatar($("#player-avatar"), config.playerName, config.playerAvatar || steamAvatarUrl(playerSteamId));

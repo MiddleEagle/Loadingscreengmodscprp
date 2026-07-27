@@ -43,7 +43,7 @@ Les SteamID64, `STEAM_0:X:YYYY` et `[U:1:YYYY]` sont acceptés pour le staff et 
 1. Ajoutez votre fichier sous le nom `assets/music.mp3`.
 2. Laissez `enabled: true` et adaptez le volume avec `volume: 0.22` si nécessaire.
 
-Le navigateur peut refuser de lancer automatiquement la musique ; le bouton « Musique désactivée » permet au visiteur de l'activer. C'est un comportement normal des navigateurs modernes.
+La musique est configurée pour démarrer automatiquement. Le bouton son reste disponible si un navigateur bloque exceptionnellement cette lecture automatique.
 
 ### Ajouter les photos du staff
 
