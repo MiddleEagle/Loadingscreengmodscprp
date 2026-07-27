@@ -16,7 +16,7 @@ window.LOADING_CONFIG = {
     // Recommandé : l'adresse de VOTRE Cloudflare Worker inclus dans worker/.
     // Exemple : "https://scp-steam-avatar.votre-compte.workers.dev/avatar?steamid="
     // Sans Worker, le service public de secours sera utilisé.
-    avatarProxyUrl: "https://steamapi.noeouvrard85.workers.dev/avatar?steamid=",
+    avatarProxyUrl: "https://steamapi.noeouvrard85.workers.dev/profile?steamid=",
     // Facultatif : si vide, l'adresse /profile est déduite automatiquement de avatarProxyUrl.
     profileProxyUrl: "",
     fallbackAvatarService: "https://unavatar.io/steam/profile:"
