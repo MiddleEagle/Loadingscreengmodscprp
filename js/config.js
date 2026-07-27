@@ -24,18 +24,21 @@ window.LOADING_CONFIG = {
   accentColor: "#d33131",
   footerText: "Sécuriser · Contenir · Protéger",
   backgroundImage: "assets/background.svg", // Remplacez par "assets/background.jpg" pour votre photo.
+  // Facultatif : ex. "assets/background.mp4". La vidéo est lue en boucle et sans son.
+  backgroundVideo: {
+    "assets/background1.mp4",
+    "assets/background2.mp4",
+    "assets/background3.mp4",
+    "assets/background4.mp4",
+    "assets/background5.mp4",
+
+  },
   music: {
     enabled: true,
     source: "assets/music.mp3", // Ajoutez votre fichier MP3 à cet emplacement.
     volume: 0.22,
     autoplay: true // Lecture lancée automatiquement à l'ouverture du loading screen.
   },
-  rules: [
-    "Restez RP : chaque action doit être cohérente avec votre rôle et votre niveau d'autorisation.",
-    "Respectez le personnel, les détenus et la chaîne de commandement de la Fondation.",
-    "Ne communiquez aucune information hors personnage (metagaming) et n'exploitez aucun bug.",
-    "Suivez les consignes du staff. En cas de problème, contactez-le calmement via un ticket."
-  ],
   staff: [
     { name: "DemonTube", grade: "Fondateur", steamId: "76561199466721881", image: "" },
     { name: "Cacao", grade: "Co Fondateur", steamId: "76561199209366991", image: "" },
