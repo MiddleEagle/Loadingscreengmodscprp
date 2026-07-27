@@ -48,6 +48,5 @@ window.LOADING_CONFIG = {
     { name: "Pizza", grade: "Modérateur test", steamId: "STEAM_0:1:366151153", image: "" },
     { name: "Zoulou", grade: "Modérateur test", steamId: "STEAM_0:1:598195100", image: "" },
     { name: "Olie", grade: "Modérateur test", steamId: "76561199304516443", image: "" },
-    { name: "", grade: "", steamId: "", image: "" },
   ]
 };
