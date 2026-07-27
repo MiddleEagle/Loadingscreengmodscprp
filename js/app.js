@@ -45,6 +45,12 @@
   document.documentElement.style.setProperty("--accent", config.accentColor);
   document.documentElement.style.setProperty("--accent-rgb", hexToRgb(config.accentColor));
   $(".background").style.backgroundImage = `url("${config.backgroundImage}")`;
+  const backgroundVideo = $("#background-video");
+  if (config.backgroundVideo) {
+    backgroundVideo.src = config.backgroundVideo;
+    backgroundVideo.addEventListener("playing", () => document.body.classList.add("has-background-video"), { once: true });
+    backgroundVideo.play().catch(() => { /* L'image de fond reste visible si la vidéo est bloquée. */ });
+  }
   setText("#server-name", config.serverName);
   setText("#server-tagline", config.serverTagline);
   setText("#welcome-text", config.welcomeText);
@@ -66,9 +72,6 @@
       .catch(() => { /* Le nom de secours reste affiché si Steam est indisponible. */ });
   }
 
-  const rules = $("#rules-list");
-  config.rules.forEach((rule) => { const item = document.createElement("li"); item.textContent = rule; rules.append(item); });
-
   const staffList = $("#staff-list");
   config.staff.forEach((member) => {
     const item = document.createElement("article");
@@ -85,6 +88,7 @@
 
   const fill = $("#progress-fill"), percent = $("#loading-percent"), status = $("#loading-status"), detail = $("#loading-detail"), progressbar = $(".progress-track");
   let gmodFilesTotal = 0;
+  let gmodFilesTotalReceived = false;
   const updateProgress = (amount, nextStatus, nextDetail) => {
     const safeAmount = Math.max(0, Math.min(100, Math.round(Number(amount) || 0)));
     if (nextStatus) status.textContent = nextStatus;
@@ -99,12 +103,18 @@
   };
   window.SetFilesTotal = (total) => {
     gmodFilesTotal = Math.max(0, Number(total) || 0);
-    updateProgress(0, "Téléchargement des ressources…", `${gmodFilesTotal} fichier(s) à télécharger`);
+    gmodFilesTotalReceived = true;
+    const value = gmodFilesTotal === 0 ? 100 : 0;
+    const message = gmodFilesTotal === 0 ? "Aucun fichier à télécharger" : `${gmodFilesTotal} fichier(s) à télécharger`;
+    updateProgress(value, "Téléchargement des ressources…", message);
   };
   window.SetFilesNeeded = (needed) => {
     const remaining = Math.max(0, Number(needed) || 0);
+    // Certaines versions/configurations GMod appellent SetFilesNeeded avant
+    // SetFilesTotal. Le premier nombre reçu est alors le total réel.
+    if (!gmodFilesTotalReceived && gmodFilesTotal === 0 && remaining > 0) gmodFilesTotal = remaining;
     const completed = Math.max(0, gmodFilesTotal - remaining);
-    const value = gmodFilesTotal ? (completed / gmodFilesTotal) * 100 : 0;
+    const value = gmodFilesTotal ? (completed / gmodFilesTotal) * 100 : (gmodFilesTotalReceived ? 100 : 0);
     updateProgress(value, "Téléchargement des ressources…", `${remaining} fichier(s) restant(s)`);
   };
   window.DownloadingFile = (fileName) => {

@@ -37,9 +37,17 @@ window.LOADING_CONFIG = {
     "Suivez les consignes du staff. En cas de problème, contactez-le calmement via un ticket."
   ],
   staff: [
-    { name: "O5-01", grade: "Fondateur", steamId: "", image: "" },
-    { name: "Dr. Shaw", grade: "Administrateur", steamId: "", image: "" },
-    { name: "Agent Kappa", grade: "Modérateur", steamId: "", image: "" },
-    { name: "Dr. Glass", grade: "Support", steamId: "", image: "" }
+    { name: "DemonTube", grade: "Fondateur", steamId: "76561199466721881", image: "" },
+    { name: "Cacao", grade: "Co Fondateur", steamId: "76561199209366991", image: "" },
+    { name: "Blue", grade: "Co Fondateur", steamId: "76561199245355095", image: "" },
+    { name: "Christ Xiloss", grade: "Gérant Global", steamId: "76561198094185969", image: "" },
+    { name: "Leo Epic", grade: "Moderateur Sénior", steamId: "76561199800509330", image: "" },
+    { name: "Jonson", grade: "Moderateur", steamId: "76561199811076597", image: "" },
+    { name: "Asashin", grade: "Moderateur", steamId: "76561199166630728", image: "" },
+    { name: "Zenox", grade: "Administrateur", steamId: "76561199680615624", image: "" },
+    { name: "Pizza", grade: "Modérateur test", steamId: "STEAM_0:1:366151153", image: "" },
+    { name: "Zoulou", grade: "Modérateur test", steamId: "STEAM_0:1:598195100", image: "" },
+    { name: "Olie", grade: "Modérateur test", steamId: "76561199304516443", image: "" },
+    { name: "", grade: "", steamId: "", image: "" },
   ]
 };

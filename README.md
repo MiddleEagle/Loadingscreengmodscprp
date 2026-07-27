@@ -1,14 +1,14 @@
 # Loading screen SCP-RP Garry's Mod — GitHub Pages
 
-Un écran de chargement SCP-RP, responsive et prêt à publier gratuitement avec GitHub Pages. Il comprend : pseudo en haut, progression réelle de connexion GMod, membres du staff avec grade et activité, grand panneau de règles, image de fond et musique.
+Un écran de chargement SCP-RP, responsive et prêt à publier gratuitement avec GitHub Pages. Il comprend : pseudo en haut, progression réelle de connexion GMod, membres du staff avec grade, image ou vidéo de fond et musique.
 
 ## Personnalisation rapide
 
-Ouvrez **`js/config.js`** : c'est le seul fichier à modifier pour changer le nom du serveur, le pseudo, les règles, le staff, les couleurs et les textes.
+Ouvrez **`js/config.js`** : c'est le seul fichier à modifier pour changer le nom du serveur, le pseudo, le staff, les couleurs et les textes.
 
 ## Barre de chargement Garry's Mod
 
-La page inclut les fonctions de chargement natives de Garry's Mod (`SetStatusChanged`, `SetFilesTotal`, `SetFilesNeeded` et `DownloadingFile`). Lorsque vous l'utilisez comme URL de loading screen dans GMod, la barre et le texte affichent exclusivement l'état réel de la connexion et des téléchargements. Il n'y a aucune animation ni étape prédéfinie : ouverte hors de GMod, la page attend simplement les données du jeu.
+La page inclut les fonctions de chargement natives de Garry's Mod (`SetStatusChanged`, `SetFilesTotal`, `SetFilesNeeded` et `DownloadingFile`). Lorsque vous l'utilisez comme URL de loading screen dans GMod, la barre et le texte affichent exclusivement l'état réel de la connexion et des téléchargements. Il n'y a aucune animation ni étape prédéfinie : ouverte hors de GMod, la page attend simplement les données du jeu. GMod transmet un pourcentage fiable uniquement pour les fichiers à télécharger ; les autres étapes de connexion sont affichées en texte.
 
 Dans la configuration de votre serveur GMod, définissez l'URL de chargement sur l'adresse GitHub Pages publiée, par exemple :
 
@@ -37,6 +37,13 @@ Les SteamID64, `STEAM_0:X:YYYY` et `[U:1:YYYY]` sont acceptés pour le staff et 
 
 1. Déposez votre image dans `assets/`, par exemple `assets/background.jpg`.
 2. Dans `js/config.js`, remplacez `backgroundImage: "assets/background.svg"` par `backgroundImage: "assets/background.jpg"`.
+
+### Ajouter une vidéo de fond
+
+1. Déposez votre vidéo sous `assets/background.mp4` (MP4 H.264, courte et compressée).
+2. Dans `js/config.js`, indiquez `backgroundVideo: "assets/background.mp4"`.
+
+Elle est lue automatiquement en boucle et sans son. L'image définie par `backgroundImage` reste disponible en secours.
 
 ### Ajouter la musique
 
