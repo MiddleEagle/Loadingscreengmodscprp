@@ -41,8 +41,8 @@ window.LOADING_CONFIG = {
     { name: "Leo Epic", grade: "Moderateur Sénior", steamId: "76561199800509330", image: "" },
     { name: "Jonson", grade: "Moderateur", steamId: "76561199811076597", image: "" },
     { name: "Asashin", grade: "Moderateur", steamId: "76561199166630728", image: "" },
-    { name: "Pizza", grade: "Modérateur test", steamId: "STEAM_0:1:366151153", image: "" },
-    { name: "Zoulou", grade: "Modérateur test", steamId: "STEAM_0:1:598195100", image: "" },
-    { name: "Olie", grade: "Modérateur test", steamId: "76561199304516443", image: "" },
+    { name: "Pizza", grade: "Modérateur", steamId: "STEAM_0:1:366151153", image: "" },
+    { name: "Zoulou", grade: "Modérateur", steamId: "STEAM_0:1:598195100", image: "" },
+    { name: "Olie", grade: "Modérateur", steamId: "76561199304516443", image: "" },
   ]
 };
