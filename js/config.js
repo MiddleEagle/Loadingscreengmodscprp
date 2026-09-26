@@ -3,8 +3,8 @@
   Les photos et la musique se placent dans le dossier assets/.
 */
 window.LOADING_CONFIG = {
-  serverName: "SunLight",
-  serverTagline: "FONDATION SCP — ACCÈS A LA ZONE XX",
+  serverName: "Les Zgug",
+  serverTagline: "Ici pour tout faire Pété",
   welcomeText: "La Connexion est en cours merci de patienter.",
   playerRole: "Personnel autorisé",
   playerName: "Joueur", // Nom de secours si l'API Steam n'est pas configurée.
@@ -32,6 +32,6 @@ window.LOADING_CONFIG = {
     autoplay: true // Lecture lancée automatiquement à l'ouverture du loading screen.
   },
   staff: [
-    { name: "DemonTube", grade: "Fondateur", steamId: "76561199466721881", image: "" },
+    { name: "MiddleEagle", grade: "Fondateur", steamId: "76561199644813006", image: "" },
   ]
 };
